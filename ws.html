@@ -1,0 +1,47 @@
+<html>
+
+
+<script>
+
+var socket = new WebSocket("ws://localhost:3000/", "protocolOne");
+
+
+socket.onopen = function(){
+	alert("Socket has been opened!");
+}
+
+socket.onmessage = function (event) {
+  var information = document.getElementById('informacion');
+    informacion.innerHTML = event.data;
+}
+
+
+
+
+</script>
+
+
+<script>
+
+var hora = function(){
+	socket.send('hora');
+}
+
+
+var quiensoy = function(){
+	socket.send('quiensoy');
+}
+
+
+</script>
+
+<h1> WebSocket con Socket.io </h1>
+
+
+<button onclick="hora()"> Saber la hora </button>
+<button onclick="quiensoy()"> Saber quien soy </button>
+
+<h3 id="informacion"> </h3>
+
+
+</html>
