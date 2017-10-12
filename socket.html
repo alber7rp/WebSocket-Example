@@ -1,0 +1,48 @@
+<html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+<script>
+var socket = io.connect("http://localhost:3000/");
+  
+socket.on('bienvenido', function (data) {
+    console.log(data);
+});
+
+
+
+</script>
+
+
+<script>
+
+var hora = function(){
+	socket.emit('hora', "");
+}
+
+socket.on('hora', function (data) {
+    var information = document.getElementById('informacion');
+    informacion.innerHTML = data;
+});
+
+var quiensoy = function(){
+	socket.emit('quien soy', "");
+}
+
+socket.on('quien soy', function (data) {
+    var information = document.getElementById('informacion');
+    informacion.innerHTML = data;
+});
+
+</script>
+
+<h1> WebSocket con Socket.io </h1>
+
+
+<button onclick="hora()"> Saber la hora </button>
+<button onclick="quiensoy()"> Saber quien soy </button>
+
+<h3 id="informacion"> </h3>
+
+
+</html>
