@@ -18,4 +18,4 @@ node index2.js
 ```
 
 - Server express -> puerto 8080
-- Server socket.io -> puerto 3000
+- Server WebSocket(ws) -> puerto 3000
